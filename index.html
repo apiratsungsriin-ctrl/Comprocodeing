@@ -3,37 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevHub - Community & Jobs</title>
+    <title>DevHub - All Systems</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #0d6efd; --bg-light: #f4f7f6; }
-        body { background-color: var(--bg-light); font-family: 'Kanit', sans-serif; padding-bottom: 80px; }
+        body { background-color: #f0f2f5; font-family: 'Kanit', sans-serif; padding-bottom: 80px; }
         .page { display: none; }
         .active-page { display: block; }
-        .header-box { background: linear-gradient(135deg, #0d6efd, #0043a8); color: white; padding: 30px 20px; border-radius: 0 0 25px 25px; margin-bottom: 20px; shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .card-custom { border: none; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; margin-bottom: 15px; }
+        .header-box { background: linear-gradient(135deg, #0d6efd, #0056b3); color: white; padding: 25px 15px; border-radius: 0 0 25px 25px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
         .bottom-nav { position: fixed; bottom: 0; width: 100%; background: white; display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #eee; z-index: 1000; }
         .nav-link { text-align: center; color: #888; text-decoration: none; font-size: 11px; flex: 1; }
-        .nav-link.active { color: var(--primary); font-weight: bold; }
-        .nav-link i { font-size: 22px; display: block; margin-bottom: 2px; }
-        .btn-post { background: white; color: #444; border: 1px solid #ddd; border-radius: 50px; text-align: left; padding: 10px 20px; width: 100%; }
+        .nav-link.active { color: #0d6efd; font-weight: bold; }
+        .nav-link i { font-size: 22px; display: block; }
+        .card-custom { border: none; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); margin-bottom: 15px; background: white; transition: 0.3s; }
     </style>
 </head>
 <body>
 
 <div id="community" class="page active-page">
-    <div class="header-box text-center">
-        <h3 class="fw-bold">👥 Dev Community</h3>
-        <p class="small mb-0 opacity-75">พื้นที่แบ่งปันและหาเพื่อนร่วมอุดมการณ์</p>
+    <div class="header-box text-center"><h4>👥 สังคมเดฟ</h4></div>
+    <div class="container mb-3"><button class="btn btn-white w-100 shadow-sm rounded-pill border py-2" data-bs-toggle="modal" data-bs-target="#modal1"><i class="bi bi-pencil-square text-primary"></i> เขียนโพสต์ใหม่</button></div>
+    <div id="list-community" class="container"></div>
+</div>
+
+<div id="ranking" class="page">
+    <div class="header-box text-center"><h4>🏆 อันดับสูงสุด</h4></div>
+    <div id="list-ranking" class="container">
+        <div class="card card-custom p-3 d-flex flex-row justify-content-between"><span>1. นายเทพ โค้ดดิ้ง</span><span class="text-warning fw-bold">2,500 แต้ม</span></div>
+        <div class="card card-custom p-3 d-flex flex-row justify-content-between"><span>2. สมหญิง สกิลดี</span><span class="text-warning fw-bold">1,850 แต้ม</span></div>
     </div>
-    <div class="container mb-4">
-        <button class="btn-post shadow-sm" data-bs-toggle="modal" data-bs-target="#postModal">
-            <i class="bi bi-pencil-square text-primary me-2"></i> คุณกำลังคิดอะไรอยู่?
-        </button>
-    </div>
-    <div id="list-community" class="container">
-        <div class="text-center py-5"><div class="spinner-border text-primary"></div></div>
+</div>
+
+<div id="experience" class="page">
+    <div class="header-box text-center"><h4>💡 ประสบการณ์</h4></div>
+    <div class="container mb-3"><button class="btn btn-warning text-white w-100 shadow-sm rounded-pill border py-2" data-bs-toggle="modal" data-bs-target="#modal3"><i class="bi bi-lightbulb-fill"></i> แชร์เทคนิค</button></div>
+    <div id="list-experience" class="container"></div>
+</div>
+
+<div id="jobs" class="page">
+    <div class="header-box text-center"><h4>💼 งานด่วน</h4></div>
+    <div id="list-jobs" class="container"></div>
+</div>
+
+<nav class="bottom-nav">
+    <a href="#" class="nav-link active" onclick="showPage('community', this)"><i class="bi bi-chat-dots"></i>สังคม</a>
+    <a href="#" class="nav-link" onclick="showPage('ranking', this)"><i class="bi bi-trophy"></i>อันดับ</a>
+    <a href="#" class="nav-link" onclick="showPage('experience', this)"><i class="bi bi-lightbulb"></i>ประสบการณ์</a>
+    <a href="#" class="nav-link" onclick="showPage('jobs', this)"><i class="bi bi-briefcase"></i>จ้างงาน</a>
+</nav>
+
+<div class="modal fade" id="modal1" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-body p-0"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLScGfD3kDVJaCqZmvnTt6jpJMKY2xJrJU2WBuIOIt8WeiGPGww/viewform?embedded=true" width="100%" height="500" frameborder="0"></iframe></div></div></div></div>
+<div class="modal fade" id="modal3" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-body p-0"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdIFyA_JmeF20s3VX_qGIW6S1-g9RWHk_BLWCjfENwTeUzIeQ/viewform?embedded=true" width="100%" height="500" frameborder="0"></iframe></div></div></div></div>
+
+<script>
+    const ID_1 = '15ajcag5w0OlLohaLHt7nY3NT3mkR_jDuc8hV3UKFeVY'; // สังคม
+    const ID_3 = '1ocXnPIi2fvjYxkO-GOVBZpm-RBg122_ywP_IJcv3Bi8'; // ประสบการณ์
+    const ID_4 = '1xnYqk5zr4WInc2BKMfMhbTYd9GTEcgrjsAsMJeh30jg'; // จ้างงาน
+
+    function showPage(p, el) {
+        document.querySelectorAll('.page').forEach(page => page.classList.remove('active-page'));
+        document.getElementById(p).classList.add('active-page');
+        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+        el.classList.add('active');
+        if(p === 'community') loadComm();
+        if(p === 'experience') loadExp();
+        if(p === 'jobs') loadJobs();
+    }
+
+    async function pull(id, gid) {
+        const r = await fetch(`https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json&gid=${gid}`);
+        const t = await r.text();
+        return JSON.parse(t.substring(47).slice(0, -2)).table.rows;
+    }
+
+    async function loadComm() {
+        try {
+            const rows = await pull(ID_1, '0');
+            document.getElementById('list-community').innerHTML = rows.map(r => `
+                <div class="card card-custom p-3">
+                    <div class="fw-bold text-primary">${r.c[2]?.v}</div>
+                    <div class="small text-muted mb-2">${r.c[3]?.v}</div>
+                    <p class="small mb-1">${r.c[4]?.v}</p>
+                </div>`).join('');
+        } catch(e) {}
+    }
+
+    async function loadExp() {
+        try {
+            const rows = await pull(ID_3, '0');
+            document.getElementById('list-experience').innerHTML = rows.map(r => `
+                <div class="card card-custom p-3 border-start border-warning border-4">
+                    <h6 class="fw-bold">${r.c[1]?.v}</h6>
+                    <p class="small text-muted mb-1">${r.c[2]?.v}</p>
+                    <small class="text-primary">โดย: ${r.c[3]?.v}</small>
+                </div>`).join('');
+        } catch(e) {}
+    }
+
+    async function loadJobs() {
+        try {
+            const rows = await pull(ID_4, '0');
+            document.getElementById('list-jobs').innerHTML = rows.map(r => `
+                <div class="card card-custom p-3 border-start border-success border-4">
+                    <h6 class="fw-bold text-primary mb-1">${r.c[3]?.v}</h6>
+                    <p class="small text-muted mb-2">${r.c[4]?.v}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="badge bg-success">฿ ${r.c[5]?.v}</span>
+                        <a href="${r.c[6]?.v}" class="btn btn-sm btn-primary rounded-pill px-3">สมัคร</a>
+                    </div>
+                </div>`).join('');
+        } catch(e) {}
+    }
+
+    window.onload = loadComm;
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
     </div>
 </div>
 
