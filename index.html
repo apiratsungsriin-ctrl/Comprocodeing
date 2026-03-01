@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevHub - Ready to Go</title>
+    <title>DevHub - Final Corrected</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
@@ -28,30 +28,42 @@
 
 <div id="p1" class="page active-page">
     <div class="header-box text-center"><h4 class="fw-bold"><i class="bi bi-chat-quote-fill me-2"></i>สังคมเดฟ</h4></div>
-    <div class="container mb-4"><button class="btn btn-light w-100 border rounded-pill py-2 text-primary" data-bs-toggle="modal" data-bs-target="#m1"><i class="bi bi-pencil-square me-2"></i>เขียนโพสต์ใหม่</button></div>
+    <div class="container mb-4 text-center">
+        <button class="btn btn-light w-100 border rounded-pill py-2 text-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#m1">
+            <i class="bi bi-pencil-square me-2"></i>เขียนโพสต์ใหม่
+        </button>
+    </div>
     <div id="l1" class="container"></div>
 </div>
 
 <div id="p2" class="page">
-    <div class="header-box text-center"><h4 class="fw-bold"><i class="bi bi-list-ol me-2"></i>อันดับเว็บไซต์</h4></div>
+    <div class="header-box text-center"><h4 class="fw-bold"><i class="bi bi-bar-chart-line-fill me-2"></i>อันดับเว็บไซต์</h4></div>
     <div id="l2" class="container"></div>
 </div>
 
 <div id="p3" class="page">
     <div class="header-box text-center"><h4 class="fw-bold"><i class="bi bi-lightbulb-fill me-2"></i>ประสบการณ์</h4></div>
-    <div class="container mb-4 text-center"><button class="btn btn-warning text-white w-100 rounded-pill py-2" data-bs-toggle="modal" data-bs-target="#m3"><i class="bi bi-stars me-2"></i>แชร์ประสบการณ์</button></div>
+    <div class="container mb-4 text-center">
+        <button class="btn btn-warning text-white w-100 rounded-pill py-2 shadow-sm" data-bs-toggle="modal" data-bs-target="#m3">
+            <i class="bi bi-stars me-2"></i>แชร์ประสบการณ์
+        </button>
+    </div>
     <div id="l3" class="container"></div>
 </div>
 
 <div id="p4" class="page">
     <div class="header-box text-center" style="background: linear-gradient(135deg, #198754, #0a4d2e);"><h4 class="fw-bold"><i class="bi bi-briefcase-fill me-2"></i>จ้างงานด่วน</h4></div>
-    <div class="container mb-4 text-center"><button class="btn btn-success w-100 rounded-pill py-2" data-bs-toggle="modal" data-bs-target="#m4"><i class="bi bi-plus-circle me-2"></i>ลงประกาศงาน</button></div>
+    <div class="container mb-4 text-center">
+        <button class="btn btn-success w-100 rounded-pill py-2 shadow-sm" data-bs-toggle="modal" data-bs-target="#m4">
+            <i class="bi bi-plus-circle me-2"></i>ลงประกาศงาน
+        </button>
+    </div>
     <div id="l4" class="container"></div>
 </div>
 
 <nav class="bottom-nav">
     <button class="nav-link active" onclick="showPage('p1', this)"><i class="bi bi-chat-dots-fill"></i>สังคม</button>
-    <button class="nav-link" onclick="showPage('p2', this)"><i class="bi bi-bar-chart-fill"></i>อันดับ</button>
+    <button class="nav-link" onclick="showPage('p2', this)"><i class="bi bi-award-fill"></i>อันดับ</button>
     <button class="nav-link" onclick="showPage('p3', this)"><i class="bi bi-journal-text"></i>ความรู้</button>
     <button class="nav-link" onclick="showPage('p4', this)"><i class="bi bi-person-workspace"></i>จ้างงาน</button>
 </nav>
@@ -61,12 +73,12 @@
 <div class="modal fade" id="m4" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-body p-0"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeXTVXlbeamMIlFuidcG5d86Go40vXZu4fZX9QbbQmJBTmApw/viewform?embedded=true" width="100%" height="600" frameborder="0"></iframe></div></div></div></div>
 
 <script>
-    // การจับคู่ ID ตามลิ้งก์ที่คุณส่งมาเป๊ะๆ
+    // IDs ที่แก้ไขแล้ว 100%
     const IDS = {
-        S1: '15ajcag5w0OlLohaLHt7nY3NT3mkR_jDuc8hV3UKFeVY', // ระบบ 1
-        S2: '1ocXnPIi2fvjYxkO-GOVBZpm-RBg122_ywP_IJcv3Bi8', // ระบบ 2 (อันดับ)
-        S3: '1FZfgrRFicbs0XpRZZ0WBBSZ6dfWsPf1_IpYFht2e5KU', // ระบบ 3 (ประสบการณ์)
-        S4: '1xnYqk5zr4WInc2BKMfMhbTYd9GTEcgrjsAsMJeh30jg'  // ระบบ 4
+        S1: '15ajcag5w0OlLohaLHt7nY3NT3mkR_jDuc8hV3UKFeVY', // สังคม
+        S2: '1FZfgrRFicbs0XpRZZ0WBBSZ6dfWsPf1_IpYFht2e5KU', // อันดับ (Ranking)
+        S3: '1ocXnPIi2fvjYxkO-GOVBZpm-RBg122_ywP_IJcv3Bi8', // ประสบการณ์ (Exp)
+        S4: '1xnYqk5zr4WInc2BKMfMhbTYd9GTEcgrjsAsMJeh30jg'  // จ้างงาน
     };
 
     function showPage(pId, el) {
@@ -99,6 +111,7 @@
 
     async function load2() {
         const rows = await pull(IDS.S2);
+        // เรียงคะแนนจากคอลัมน์ E (index 4) มากไปน้อย
         rows.sort((a, b) => (parseFloat(b.c[4]?.v) || 0) - (parseFloat(a.c[4]?.v) || 0));
         let h = '';
         rows.forEach((r, i) => {
@@ -106,7 +119,7 @@
                 <div class="d-flex align-items-center"><div class="fw-bold text-primary me-3 fs-5" style="min-width:40px;">#${i+1}</div>
                 <div><h6 class="fw-bold mb-0 text-dark">${r.c[1]?.v || ''}</h6><small class="text-muted">${r.c[2]?.v || ''}</small></div></div>
                 <div class="text-end"><div class="text-warning fw-bold"><i class="bi bi-star-fill"></i> ${r.c[4]?.v || '0.0'}</div>
-                <a href="${r.c[3]?.v}" target="_blank" class="btn btn-sm btn-link p-0 text-decoration-none" style="font-size:11px">ดูเว็บ <i class="bi bi-arrow-right"></i></a></div>
+                <a href="${r.c[3]?.v}" target="_blank" class="btn btn-sm btn-link p-0 text-decoration-none" style="font-size:11px">ลิ้งก์เว็บ <i class="bi bi-arrow-right"></i></a></div>
             </div>`;
         });
         document.getElementById('l2').innerHTML = h;
